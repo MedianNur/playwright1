@@ -1,13 +1,14 @@
 const { test, expect } = require('@playwright/test');
+import { form } from "../asset/utils.spec.js"
 
 test('End-to-End Test on Sauce Demo', async ({ page }) => {
   // Navigate to the Sauce Demo website
   await page.goto('https://www.saucedemo.com/');
 
   // Step 1: Login
-  await page.fill('#user-name', 'standard_user'); // Username
-  await page.fill('#password', 'secret_sauce');  // Password
-  await page.click('#login-button');            // Click Login button
+  await page.fill(form.username, 'standard_user');
+  await page.fill(form.password, 'secret_sauce');
+  await page.click('#login-button');
 
   // Verify successful login by checking the presence of the inventory page
   await expect(page.locator('.inventory_list')).toBeVisible();
