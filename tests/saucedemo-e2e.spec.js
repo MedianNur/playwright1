@@ -1,12 +1,13 @@
 const { test, expect } = require('@playwright/test');
+import {form} from "../aset/form.spec.js";
 
 test('End-to-End Test on Sauce Demo', async ({ page }) => {
   // Navigate to the Sauce Demo website
   await page.goto('https://www.saucedemo.com/');
 
   // Step 1: Login
-  await page.fill('#user-name', 'standard_user'); // Username
-  await page.fill('#password', 'secret_sauce');  // Password
+  await page.fill(form.username, 'standard_user'); // Username
+  await page.fill(form.passwordpassword, 'secret_sauce');  // Password
   await page.click('#login-button');            // Click Login button
 
   // Verify successful login by checking the presence of the inventory page
@@ -38,12 +39,9 @@ test('End-to-End Test on Sauce Demo', async ({ page }) => {
   await expect(page.locator('.summary_info')).toBeVisible();
 
   // Step 5: Finish the checkout
-  await page.click('#finish');
-
+  await page.click('#finish');t
   // Verify the order confirmation
   await expect(page.locator('.complete-header')).toHaveText('Thank you for your order!');
-
-  //test
 
   // End of the test
 });
