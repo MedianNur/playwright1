@@ -43,5 +43,7 @@ test('End-to-End Test on Sauce Demo', async ({ page }) => {
   // Verify the order confirmation
   await expect(page.locator('.complete-header')).toHaveText('Thank you for your order!');
 
+  //test
+
   // End of the test
 });
