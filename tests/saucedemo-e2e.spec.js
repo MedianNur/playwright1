@@ -7,7 +7,7 @@ test('End-to-End Test on Sauce Demo', async ({ page }) => {
 
   // Step 1: Login
   await page.fill(form.username, 'standard_user'); // Username
-  await page.fill(form.passwordpassword, 'secret_sauce');  // Password
+  await page.fill(form.password, 'secret_sauce');  // Password
   await page.click('#login-button');            // Click Login button
 
   // Verify successful login by checking the presence of the inventory page
